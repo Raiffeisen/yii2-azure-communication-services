@@ -1,0 +1,61 @@
+{
+    "name": "raiffeisen/yii2-azure-communication-services",
+    "type": "yii2-extension",
+    "description": "Azure communication services widgets for yii2",
+    "keywords": [
+        "yii2",
+        "ACS",
+        "Azure",
+        "Azure communication services"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "simialbi",
+            "email": "simi.albi@outlook.com"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/raiffeisen/yii2-azure-communication-services",
+        "issues": "https://github.com/raiffeisen/yii2-azure-communication-services/issues"
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.3",
+        "yiisoft/yii2": "^2.0.20",
+        "simialbi/yii2-fontawesome": "^3.4.8"
+    },
+    "require-dev": {
+        "fortawesome/font-awesome": "^5.10.0",
+        "yiisoft/yii2-coding-standards": "~2.0",
+        "phpunit/phpunit": "<7"
+    },
+    "suggest": {
+    },
+    "autoload": {
+        "psr-4": {
+            "raiffeisen\\acs\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "yiiunit\\extensions\\acs\\": "tests"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
+        }
+    }
+}
