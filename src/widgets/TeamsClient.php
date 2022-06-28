@@ -6,6 +6,10 @@
 
 namespace raiffeisen\acs\widgets;
 
+use marqu3s\summernote\Summernote;
+use rmrevin\yii\fontawesome\FA;
+use rmrevin\yii\fontawesome\FAL;
+use rmrevin\yii\fontawesome\FAR;
 use rmrevin\yii\fontawesome\FAS;
 use Yii;
 use yii\base\InvalidConfigException;
@@ -35,6 +39,11 @@ class TeamsClient extends Widget
     public $displayName = 'Website User';
 
     /**
+     * @var bool Whether or not to allow user to format his input with summernote
+     */
+    public $allowRichText = true;
+
+    /**
      * @var array the HTML attributes for the widget container tag.
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
@@ -56,6 +65,9 @@ class TeamsClient extends Widget
         }
         if (!isset($this->options['id'])) {
             $this->options['id'] = $this->getId();
+        }
+        if ($this->allowRichText && !class_exists('marqu3s\summernote\Summernote')) {
+            $this->allowRichText = false;
         }
 
         Yii::$app->i18n->translations['raiffeisen/acs*'] = [
@@ -112,10 +124,49 @@ class TeamsClient extends Widget
         $html .= Html::tag('div', '', [
             'class' => ['chat-container']
         ]);
-        $html .= Html::textarea('chat-input', '', [
-            'class' => ['chat-input'],
-            'placeholder' => Yii::t('raiffeisen/acs', 'Write a message')
-        ]);
+        if ($this->allowRichText) {
+            $html .= Summernote::widget([
+                'name' => 'chatInput',
+                'options' => [
+                    'class' => ['chat-input']
+                ],
+                'clientOptions' => [
+                    'height' => 200,
+                    'minHeight' => 200,
+                    'maxHeight' => 200,
+                    'styleTags' => ['h1', 'h2', 'h3', 'p'],
+                    'codemirror' => false,
+                    'lang' => Yii::$app->language,
+                    'icons' => [
+                        'bold' => (string)FAR::i('bold'),
+                        'italic' => (string)FAR::i('italic'),
+                        'underline' => (string)FAR::i('underline'),
+                        'strikethrough' => (string)FAR::i('strikethrough'),
+                        'subscript' => (string)FAR::i('subscript'),
+                        'superscript' => (string)FAR::i('superscript'),
+                        'orderedlist' => (string)FAR::i('list-ol'),
+                        'unorderedlist' => (string)FAR::i('list-ul'),
+                        'eraser' => (string)FAR::i('eraser'),
+                        'magic' => (string)FAR::i('magic'),
+                        'link' => (string)FAR::i('link'),
+                        'picture' => (string)FAR::i('image')
+                    ],
+                    'toolbar' => [
+                        ['style', ['style']],
+                        ['font', ['bold', 'italic', 'underline', 'strikethrough']],
+                        ['script', ['subscript', 'superscript']],
+                        ['list', ['ol', 'ul']],
+                        ['insert', ['link', 'picture']],
+                        ['clear', ['clear']]
+                    ]
+                ]
+            ]);
+        } else {
+            $html .= Html::textarea('chat-input', '', [
+                'class' => ['chat-input'],
+                'placeholder' => Yii::t('raiffeisen/acs', 'Write a message')
+            ]);
+        }
         $html .= Html::tag('div', '', [
             'class' => ['remote-video-container'],
             'style' => ['display' => 'none']

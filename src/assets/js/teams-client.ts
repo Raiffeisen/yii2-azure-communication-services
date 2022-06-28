@@ -154,8 +154,7 @@ class TeamsClient {
                 type: 'html'
             };
 
-            const sendChatMessageResult: SendChatMessageResult = await this.chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
-
+            await this.chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
         });
     }
 

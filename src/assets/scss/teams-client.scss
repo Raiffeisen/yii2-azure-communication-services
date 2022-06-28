@@ -31,6 +31,7 @@ $padding: 1rem 3rem;
             }
         }
     }
+
     .chat-window {
         align-items: stretch;
         background-color: var(--white, var(--bs-white, $white));
@@ -62,6 +63,7 @@ $padding: 1rem 3rem;
                 font-weight: bold;
                 padding: $padding;
             }
+
             .btn-group {
                 .btn {
                     background-color: rgba($black, .2);
@@ -89,6 +91,7 @@ $padding: 1rem 3rem;
                 }
             }
         }
+
         .chat-body {
             align-items: stretch;
             display: flex;
@@ -102,6 +105,7 @@ $padding: 1rem 3rem;
                 flex-grow: 1;
                 padding: $padding;
             }
+
             .chat-input {
                 border: none transparent;
                 border-radius: 0;
@@ -109,6 +113,101 @@ $padding: 1rem 3rem;
                 outline: 0;
                 padding: $padding;
                 resize: none;
+            }
+
+            .note-editor {
+                border: none transparent;
+
+                .note-dropdown-menu {
+                    &.dropdown-style {
+                        h1 {
+                            font-size: 24px;
+                            font-weight: normal;
+                        }
+                        h2 {
+                            font-size: 20px;
+                            font-weight: bold;
+                        }
+                        h3 {
+                            font-size: 16px;
+                            font-weight: normal;
+                        }
+                        p {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                .note-editing-area {
+                    .note-editable {
+                        color: var(--black, var(--bs-black, $black));
+                        font-size: 14px;
+
+                        h1 {
+                            font-size: 24px;
+                            margin-bottom: 10px;
+                        }
+                        h2 {
+                            font-size: 20px;
+                            font-weight: bold;
+                            margin-bottom: 10px;
+                        }
+                        h3 {
+                            font-size: 16px;
+                            font-weight: normal;
+                            margin-bottom: 10px;
+                        }
+                        p, ol, ul {
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+
+                .note-toolbar, .note-popover {
+                    background-color: var(--white, var(--bs-white, $white));
+                    border-bottom: none transparent;
+                    border-radius: 0;
+                    border-top: 3px solid var(--primary, var(--bs-primary, $raiffeisen-red));
+                    box-shadow: 0 1px 3px rgba($black, .12), 0 1px 1px 1px rgba($black, .16);
+                }
+
+                .note-popover .arrow {
+                    border-bottom: 5px solid var(--primary, var(--bs-primary, $raiffeisen-red));
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                    display: inline-block;
+                    height: 0;
+                    position: absolute;
+                    top: -8px;
+                    width: 0;
+                }
+
+                .note-btn {
+                    background-color: var(--black, var(--bs-black, $black));
+                    border: 1px solid var(--black, var(--bs-black, $black));
+                    border-radius: 0;
+                    box-shadow: none;
+                    color: var(--white, var(--bs-white, $white));
+                    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+                    will-change: background-color, color;
+
+                    .svg-inline--fa {
+                        margin: 0;
+                    }
+
+                    + .note-btn {
+                        margin-left: 1px;
+                    }
+
+                    &:hover, &.active {
+                        background-color: var(--white, var(--bs-white, $white));
+                        color: var(--black, var(--bs-black, $black));
+                    }
+                }
+
+                .note-statusbar {
+                    display: none;
+                }
             }
 
             .remote-video-container, .local-video-container {
@@ -129,6 +228,7 @@ $padding: 1rem 3rem;
                 }
             }
         }
+
         .chat-window {
             opacity: 1;
             pointer-events: all;

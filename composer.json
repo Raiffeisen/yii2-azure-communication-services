@@ -27,10 +27,12 @@
     },
     "require-dev": {
         "fortawesome/font-awesome": "^5.10.0",
-        "yiisoft/yii2-coding-standards": "~2.0",
-        "phpunit/phpunit": "<7"
+        "phpunit/phpunit": "<7",
+        "simialbi/yii2-summernote": "^1.2.2",
+        "yiisoft/yii2-coding-standards": "~2.0"
     },
     "suggest": {
+        "simialbi/yii2-summernote": "To allow richtext in chat"
     },
     "autoload": {
         "psr-4": {
