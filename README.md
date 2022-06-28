@@ -1,8 +1,8 @@
 <p align="center">
     <a href="https://azure.microsoft.com/en-us/services/communication-services/" target="_blank">
-        <img src="/docs/acs_logo.png" height="300" width="300">
+        <img src="./docs/acs_logo.png" height="300" width="300" title="Azure communication services" alt="Azure communication services logo">
     </a>
-    <h1 align="center">Azure communication widgets for yii2</h1>
+    <h1 align="center">Azure communication widgets for yii2 (WIP)</h1>
     <br>
 </p>
 
