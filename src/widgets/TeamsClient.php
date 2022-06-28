@@ -58,6 +58,13 @@ class TeamsClient extends Widget
             $this->options['id'] = $this->getId();
         }
 
+        Yii::$app->i18n->translations['raiffeisen/acs*'] = [
+            'class' => 'yii\i18n\GettextMessageSource',
+            'sourceLanguage' => 'en-US',
+            'basePath' => '@raiffeisen/acs/messages',
+            'forceTranslation' => true
+        ];
+
         parent::init();
     }
 
@@ -68,12 +75,15 @@ class TeamsClient extends Widget
     {
         $html = Html::beginTag('div', $this->options);
         $html .= Html::beginTag('div', [
+            'class' => 'chat-window'
+        ]);
+        $html .= Html::beginTag('div', [
             'class' => ['chat-header']
         ]);
         $html .= Html::tag('span', $this->displayName, ['class' => ['display-name']]);
 
         $html .= Html::beginTag('div', [
-            'class' => ['btn-group'],
+            'class' => ['btn-group', 'btn-group-sm'],
             'role' => 'group',
             'aria' => ['label' => 'Tool Buttons']
         ]);
@@ -103,7 +113,8 @@ class TeamsClient extends Widget
             'class' => ['chat-container']
         ]);
         $html .= Html::textarea('chat-input', '', [
-            'class' => ['chat-input']
+            'class' => ['chat-input'],
+            'placeholder' => Yii::t('raiffeisen/acs', 'Write a message')
         ]);
         $html .= Html::tag('div', '', [
             'class' => ['remote-video-container'],
@@ -114,6 +125,14 @@ class TeamsClient extends Widget
             'style' => ['display' => 'none']
         ]);
         $html .= Html::endTag('div'); // .chat-body
+        $html .= Html::endTag('div'); // .chat-window
+        $html .= Html::beginTag('div', [
+            'class' => ['chat-toggle']
+        ]);
+        $html .= Html::button(FAS::i('comments-alt') . FAS::i('times', ['class' => 'chat-close']), [
+            'class' => ['chat-toggle-button']
+        ]);
+        $html .= Html::endTag('div'); //.chat-toggle
         $html .= Html::endTag('div');
 
         $this->registerPlugin();
@@ -143,8 +162,12 @@ window.teams = new TeamsClient(
     jQuery('#{$this->options['id']} .local-video-container')[0],
     '{$this->displayName}'
 );
-window.teams.initChatClient('');
-window.teams.initCallClient();
+// window.teams.initChatClient('');
+// window.teams.initCallClient();
+
+jQuery('#{$this->options['id']} .chat-toggle-button').on('click', function () {
+    jQuery(this).closest('.teams-chat').toggleClass('active');
+});
 JS;
 
         $this->view->registerJs($js, $this->view::POS_READY, 'teams-client');

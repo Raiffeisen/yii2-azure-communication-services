@@ -16,14 +16,14 @@
     "dependencies": {
         "@azure/communication-calling": "^1.5.4",
         "@azure/communication-chat": "^1.2.0",
-        "@azure/communication-common": "^2.0.0",
-        "ts-loader": "^9.3.1"
+        "@azure/communication-common": "^2.0.0"
     },
     "devDependencies": {
         "webpack": "^5.73.0",
         "webpack-cli": "^4.10.0"
     },
     "scripts": {
-        "build": "webpack"
+        "build": "tsc --build && webpack",
+        "pack": "webpack"
     }
 }

@@ -1,0 +1,109 @@
+.teams-chat {
+  bottom: 3.125rem;
+  left: 1.5625rem;
+  position: fixed;
+  z-index: 1049;
+}
+.teams-chat .chat-toggle .chat-toggle-button {
+  background-color: var(--primary, var(--bs-primary, #e82025));
+  border: none transparent;
+  border-radius: 50%;
+  color: var(--white, var(--bs-white, #ffffff));
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  width: 4rem;
+}
+.teams-chat .chat-toggle .chat-toggle-button .svg-inline--fa {
+  will-change: display;
+}
+.teams-chat .chat-toggle .chat-toggle-button .svg-inline--fa.chat-close {
+  display: none;
+}
+.teams-chat .chat-window {
+  align-items: stretch;
+  background-color: var(--white, var(--bs-white, #ffffff));
+  bottom: 5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: 660px;
+  justify-content: stretch;
+  max-height: calc(100vh - 9.375rem);
+  max-width: calc(100vw - 1.5625rem);
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 0.2s ease-in-out;
+  width: 500px;
+  will-change: opacity, pointer-events;
+}
+.teams-chat .chat-window .chat-header {
+  align-items: stretch;
+  background-color: var(--primary, var(--bs-primary, #e82025));
+  color: var(--white, var(--bs-white, #ffffff));
+  display: flex;
+  flex-grow: 0;
+  justify-content: space-between;
+}
+.teams-chat .chat-window .chat-header .display-name {
+  font-size: 1.25em;
+  font-weight: bold;
+  padding: 1rem 3rem;
+}
+.teams-chat .chat-window .chat-header .btn-group .btn {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+  border-left: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 0;
+  border-right: none;
+  border-top: none;
+  box-shadow: none;
+  color: var(--white, var(--bs-white, #ffffff));
+  font-size: 1.5rem;
+  margin-left: 0;
+  transition: background-color 0.2s ease-in-out;
+  will-change: background-color;
+}
+.teams-chat .chat-window .chat-header .btn-group .btn .svg-inline--fa {
+  margin: 0;
+}
+.teams-chat .chat-window .chat-header .btn-group .btn:hover, .teams-chat .chat-window .chat-header .btn-group .btn:focus {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.teams-chat .chat-window .chat-body {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: stretch;
+  position: relative;
+}
+.teams-chat .chat-window .chat-body .chat-container {
+  background-color: var(--light, var(--bs-light), #e4e4e4);
+  flex-grow: 1;
+  padding: 1rem 3rem;
+}
+.teams-chat .chat-window .chat-body .chat-input {
+  border: none transparent;
+  border-radius: 0;
+  flex-grow: 0;
+  outline: 0;
+  padding: 1rem 3rem;
+  resize: none;
+}
+.teams-chat .chat-window .chat-body .remote-video-container, .teams-chat .chat-window .chat-body .local-video-container {
+  position: absolute;
+}
+.teams-chat.active .chat-toggle .chat-toggle-button .svg-inline--fa {
+  display: none;
+}
+.teams-chat.active .chat-toggle .chat-toggle-button .svg-inline--fa.chat-close {
+  display: inline;
+}
+.teams-chat.active .chat-window {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/*# sourceMappingURL=teams-client.css.map */

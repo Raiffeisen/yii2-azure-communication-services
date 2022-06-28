@@ -1,11 +1,22 @@
 {
     "compilerOptions": {
         "outDir": "src/assets/dist/",
-        "sourceMap": true,
+        "sourceMap": false,
         "noImplicitAny": true,
+        "noImplicitUseStrict": false,
+        "isolatedModules": false,
+        "removeComments": true,
+        "preserveConstEnums": true,
         "module": "ES6",
         "target": "ES5",
-        "allowJs": true,
-        "moduleResolution": "Node"
-    }
+        "allowJs": false,
+        "moduleResolution": "Node",
+        "strict": false,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": [
+        "**/*"
+    ]
 }

@@ -1,0 +1,137 @@
+@import "raiffeisen-colors";
+
+$chat-window-height: 660px;
+$chat-window-width: 500px;
+$padding: 1rem 3rem;
+
+.teams-chat {
+    bottom: 3.125rem;
+    left: 1.5625rem;
+    position: fixed;
+    //right: 1.5625rem;
+    z-index: 1049;
+
+    .chat-toggle {
+        .chat-toggle-button {
+            background-color: var(--primary, var(--bs-primary, $raiffeisen-red));
+            border: none transparent;
+            border-radius: 50%;
+            color: var(--white, var(--bs-white, $white));
+            height: 4rem;
+            line-height: 4rem;
+            text-align: center;
+            width: 4rem;
+
+            .svg-inline--fa {
+                will-change: display;
+
+                &.chat-close {
+                    display: none;
+                }
+            }
+        }
+    }
+    .chat-window {
+        align-items: stretch;
+        background-color: var(--white, var(--bs-white, $white));
+        bottom: 5rem;
+        box-shadow: 0 .125rem .25rem rgba($black, .08);
+        display: flex;
+        flex-direction: column;
+        height: $chat-window-height;
+        justify-content: stretch;
+        max-height: calc(100vh - 9.375rem);
+        max-width: calc(100vw - 1.5625rem);
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        transition: opacity .2s ease-in-out;
+        width: $chat-window-width;
+        will-change: opacity, pointer-events;
+
+        .chat-header {
+            align-items: stretch;
+            background-color: var(--primary, var(--bs-primary, $raiffeisen-red));
+            color: var(--white, var(--bs-white, $white));
+            display: flex;
+            flex-grow: 0;
+            justify-content: space-between;
+
+            .display-name {
+                font-size: 1.25em;
+                font-weight: bold;
+                padding: $padding;
+            }
+            .btn-group {
+                .btn {
+                    background-color: rgba($black, .2);
+                    border: {
+                        bottom: none;
+                        left: 1px solid rgba($black, .4);
+                        radius: 0;
+                        right: none;
+                        top: none;
+                    }
+                    box-shadow: none;
+                    color: var(--white, var(--bs-white, $white));
+                    font-size: 1.5rem;
+                    margin-left: 0;
+                    transition: background-color .2s ease-in-out;
+                    will-change: background-color;
+
+                    .svg-inline--fa {
+                        margin: 0;
+                    }
+
+                    &:hover, &:focus {
+                        background-color: rgba($black, .3);
+                    }
+                }
+            }
+        }
+        .chat-body {
+            align-items: stretch;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: stretch;
+            position: relative;
+
+            .chat-container {
+                background-color: var(--light, var(--bs-light), $gray-2);
+                flex-grow: 1;
+                padding: $padding;
+            }
+            .chat-input {
+                border: none transparent;
+                border-radius: 0;
+                flex-grow: 0;
+                outline: 0;
+                padding: $padding;
+                resize: none;
+            }
+
+            .remote-video-container, .local-video-container {
+                position: absolute;
+            }
+        }
+    }
+
+    &.active {
+        .chat-toggle {
+            .chat-toggle-button {
+                .svg-inline--fa {
+                    display: none;
+
+                    &.chat-close {
+                        display: inline;
+                    }
+                }
+            }
+        }
+        .chat-window {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+}

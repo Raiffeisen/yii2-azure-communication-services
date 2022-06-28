@@ -18,6 +18,13 @@ class TeamsClientAsset extends AssetBundle
     /**
      * @inheritdoc
      */
+    public $css = [
+        'teams-client.css'
+    ];
+
+    /**
+     * @inheritdoc
+     */
     public $js = [
         'teams-client.min.js'
     ];

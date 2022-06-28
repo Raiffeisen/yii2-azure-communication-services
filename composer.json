@@ -19,7 +19,7 @@
         "source": "https://github.com/raiffeisen/yii2-azure-communication-services",
         "issues": "https://github.com/raiffeisen/yii2-azure-communication-services/issues"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "beta",
     "require": {
         "php": ">=7.3",
         "yiisoft/yii2": "^2.0.20",
