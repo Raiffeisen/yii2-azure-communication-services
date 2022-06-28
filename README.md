@@ -11,6 +11,10 @@ with [Yii framework 2.0](http://www.yiiframework.com).
 
 For license information check the [LICENSE](LICENSE.md)-file.
 
+[![Latest Stable Version](https://poser.pugx.org/raiffeisen/yii2-azure-communication-services/v/stable?style=flat-square)](https://packagist.org/packages/raiffeisen/yii2-azure-communication-services)
+[![Total Downloads](https://poser.pugx.org/raiffeisen/yii2-azure-communication-services/downloads?style=flat-square)](https://packagist.org/packages/raiffeisen/yii2-azure-communication-services)
+[![License](https://poser.pugx.org/raiffeisen/yii2-azure-communication-services/license?style=flat-square)](https://packagist.org/packages/raiffeisen/yii2-azure-communication-services)
+
 Installation
 ------------
 
