@@ -23,7 +23,7 @@
     "require": {
         "php": ">=7.3",
         "yiisoft/yii2": "^2.0.20",
-        "simialbi/yii2-fontawesome": "^3.4.8"
+        "rmrevin/yii2-fontawesome": "^3.7.0",
     },
     "require-dev": {
         "fortawesome/font-awesome": "^5.10.0",
